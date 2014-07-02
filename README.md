@@ -5,7 +5,7 @@ This is a demo application that shows how to run JDG in EAP 6 using modules (wor
 
 To run this demo follow the steps below:
 
-1. Download JBoss EAP 6.3 Beta or later and place it under the installs dir
+1. Download JBoss EAP 6.2 and JDG 6.3 Beta or later and place it under the installs dir
 2. Run the init.sh script (you might have to change some of the settings in init.sh)
 2. Start JBoss EAP
 
