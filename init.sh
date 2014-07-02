@@ -6,7 +6,8 @@ SERVER_CONF=$JBOSS_HOME/standalone/configuration/
 LIB_DIR=./support/lib
 SRC_DIR=./installs
 EAP=jboss-eap-6.2.0.zip
-JDG=jboss-datagrid-6.3.0.ER7-eap-modules-library.zip
+#JDG=jboss-datagrid-6.3.0.ER7-eap-modules-library.zip
+JDG=jboss-datagrid-6.3.0.Beta-eap-modules-library.zip
 
 
 echo
