@@ -1,5 +1,5 @@
 <h2>All Todos <a class="btn btn-primary pull-right" href="#/create"><i
-        class="icon-plus-sign icon-white"></i> New Todo</a></h2>
+        class="icon-plus-sign icon-white"></i> New Task</a></h2>
 
 <table class="table table-hover">
     <tr>
@@ -17,19 +17,19 @@
         </th>
         <th>Done</th>
     </tr>
-    <tr class="success-{{todo.done}}" ng-repeat="todo in todos track by $index">
-        <td>{{todo.id}}</td>
+    <tr class="success-{{task.done}}" ng-repeat="task in tasks track by $index">
+        <td>{{task.id}}</td>
         <td>
-            {{todo.title}}
+            {{task.title}}
         </td>
         <td>
-            {{todo.createdOn |date:'medium'}}
+            {{task.createdOn |date:'medium'}}
         </td>
         <td>
-            {{todo.completedOn |date:'medium'}}
+            {{task.completedOn |date:'medium'}}
         </td>
         <td>
-            <input type="checkbox" ng-change="todoStatusChanged(todo)" ng-value="todo.done" ng-model="todo.done">
+            <input type="checkbox" ng-change="taskStatusChanged(task)" ng-value="task.done" ng-model="task.done">
         </td>
     </tr>
 </table>

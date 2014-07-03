@@ -1,2 +1,7 @@
 target/
 installs/*.zip
+projects/.metadata
+projects/RemoteSystemsTempFiles
+.classpath
+.project
+.settings

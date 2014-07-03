@@ -1,4 +1,4 @@
-var app = angular.module('todo', [
+var app = angular.module('task', [
     'ngCookies',
     'ngResource',
     'ngSanitize',
@@ -19,18 +19,18 @@ app.config(function ($routeProvider) {
  
 app.controller('ListCtrl', function ($scope, $http) {
     $http.get('/todo/rest/tasks').success(function (data) {
-        $scope.todos = data;
+        $scope.tasks = data;
     }).error(function (data, status) {
         console.log('Error ' + data)
     })
  
-    $scope.todoStatusChanged = function (todo) {
-        console.log(todo);
-        if(todo.done)
-        	todo.completedOn = new Date();
+    $scope.taskStatusChanged = function (task) {
+        console.log(task);
+        if(task.done)
+        	task.completedOn = new Date();
         else
-        	todo.completedOn = null;
-        $http.put('/todo/rest/tasks/' + todo.id, todo).success(function (data) {
+        	task.completedOn = null;
+        $http.put('/todo/rest/tasks/' + task.id, task).success(function (data) {
             console.log('status changed');
         }).error(function (data, status) {
             console.log('Error ' + data);
@@ -39,13 +39,13 @@ app.controller('ListCtrl', function ($scope, $http) {
 });
  
 app.controller('CreateCtrl', function ($scope, $http, $location) {
-    $scope.todo = {
+    $scope.task = {
         done: false
     };
  
-    $scope.createTodo = function () {
-        console.log($scope.todo);
-        $http.post('/todo/rest/tasks', $scope.todo).success(function (data) {
+    $scope.createTask = function () {
+        console.log($scope.task);
+        $http.post('/todo/rest/tasks', $scope.task).success(function (data) {
             $location.path('/');
         }).error(function (data, status) {
             console.log('Error ' + data)
