@@ -57,24 +57,6 @@
 			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.infinispan</groupId>
-			<artifactId>infinispan-core</artifactId>
-			<version>${jdg.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.infinispan</groupId>
-			<artifactId>infinispan-cdi</artifactId>
-			<version>${jdg.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.cache</groupId>
-			<artifactId>cache-api</artifactId>
-			<version>${version.javax.cache.api}</version>
-			<scope>provided</scope>
-		</dependency>
 	</dependencies>
 	<build>
 		<finalName>todo</finalName>
@@ -84,11 +66,6 @@
 				<version>2.4</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<archive>
-						<manifestEntries>
-							<Dependencies>org.infinispan.cdi:jdg-6.3 meta-inf, org.infinispan:jdg-6.3 services</Dependencies>
-						</manifestEntries>
-					</archive>
 				</configuration>
 			</plugin>
 			<plugin>

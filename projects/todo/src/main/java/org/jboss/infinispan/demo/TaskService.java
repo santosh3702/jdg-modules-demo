@@ -1,59 +1,51 @@
 package org.jboss.infinispan.demo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
-import javax.annotation.PreDestroy;
-import javax.cache.annotation.CacheRemoveAll;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.infinispan.Cache;
 import org.jboss.infinispan.demo.model.Task;
 
 @Named
 @ApplicationScoped
 public class TaskService {
 
-	@SuppressWarnings("cdi-ambiguous-dependency")
-	@Inject
-	Cache<Long, Task> cache;
 
+	/**
+	 * This methods should return all cache entries, currently contains mockup code. 
+	 * @return
+	 */
 	public List<Task> findAll() {
-		return new ArrayList<Task>(cache.values());
+		//TODO: Replace this mockup code with code that returns a list from JDG
+		ArrayList<Task> list = new ArrayList<Task>();
+		Calendar calendar = new GregorianCalendar();
+		Task t1 = new Task();
+		t1.setId(new Long(1));
+		t1.setTitle("Send email to Anna about latest requirements");
+		calendar.set(2014, 5, 30,14,43,07);
+		t1.setCreatedOn(calendar.getTime());
+		list.add(t1);
+		Task t2 = new Task();
+		t2.setId(new Long(2));
+		t2.setTitle("Verify that the latest configuration contains the latest patches");
+		calendar.set(2014, 6, 3,8,55,14);
+		t2.setCreatedOn(calendar.getTime());
+		list.add(t2);
+		return list;
 	}
 
 	public void create(Task task) {
-		Long id = new Long(cache.size() + 1);
-		task.setId(id);
-		task.setCreatedOn(new Date());
-		cache.put(id, task);
+		//TODO
 	}
 
-	public Task find(Long id) {
-		return cache.get(id);
-	}
 
 	public void update(Task task) {
-		cache.replace(task.getId(), task);
-	}
-
-	public void delete(Long id) {
-		cache.remove(id);
-	}
-
-	@CacheRemoveAll()
-	public void clearCache() {
-	}
-
-	@PreDestroy
-	public void destory() {
-		if (cache != null) {
-			cache.stop();
-			cache.getCacheManager().stop();
-		}
+		//TODO
 	}
 
 }

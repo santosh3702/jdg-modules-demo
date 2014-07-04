@@ -38,24 +38,6 @@ public class TaskEndpoint
       return Response.created(UriBuilder.fromResource(TaskEndpoint.class).path(String.valueOf(task.getId())).build()).build();
    }
 
-   @DELETE
-   @Path("/{id:[0-9][0-9]*}")
-   public Response deleteById(@PathParam("id") Long id)
-   {
-      taskService.delete(id);
-      return Response.noContent().build();
-   }
-
-   @GET
-   @Path("/{id:[0-9][0-9]*}")
-   @Produces("application/json")
-   public Response findById(@PathParam("id") Long id)
-   {
-      Task task;
-      task = taskService.find(id);
-      return Response.ok(task).build();
-   }
-
    @GET
    @Produces("application/json")
    public List<Task> listAll(@QueryParam("start") Integer startPosition, @QueryParam("max") Integer maxResult)
