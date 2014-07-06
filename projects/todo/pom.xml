@@ -11,9 +11,8 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.7</maven.compiler.target>
-		<jdg.version>6.1.0.ER7-redhat-1</jdg.version>
-		<version.javax.cache.api>1.0.0-PFD</version.javax.cache.api>
 	</properties>
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

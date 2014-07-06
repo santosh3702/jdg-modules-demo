@@ -56,22 +56,35 @@ The First step over is to verify that the application build and deploy before we
 ### Add dependencies to the maven project
 In this step-by-step section we will add dependecies to the maven project so that we can later on add the code to store tasks in JDG. 
 
-1. Open the maven pom.xml file in project/todo in an editor or IDE and add the following dependencies:
+1. Open the maven pom.xml file in project/todo in an editor or IDE and add the following in the dependencyManagement section
+
+		<dependencyManagement>
+			...
+			...
+			...
+			<dependency>
+				<groupId>org.infinispan</groupId>
+				<artifactId>infinispan-bom</artifactId>
+				<version>6.1.0.ER5-redhat-1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencyManagement>
+
+	And add the following dependencies.
 
 		<dependency>
 			<groupId>org.infinispan</groupId>
 			<artifactId>infinispan-core</artifactId>
-			<version>${jdg.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.infinispan</groupId>
 			<artifactId>infinispan-cdi</artifactId>
-			<version>${jdg.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		
-	**Note:** The mockup project already contains the ${jdg.version} property
+	**Note:** We use a bom file to manage the versions of the dependencies, if you choose not to use the bom file, just specify the version in the dependecies. The version of the bom file is the version used for JDG 6.3 Beta and should be update as soon as JDG 6.3 is fully available.
 
 2. One of the nice things with installing JDG as JBoss EAP modules is that JDG libraries are installed and maintained in the container, which means that we don't have to ship them as part of the WAR file. For example if we need to patch JDG we don't have to patch the application. We do however need to tell the cointainer (JBoss EAP) that our application depends on these modules. This can be done using JBoss specific deployment file called boss-deployment-structure.xml or via adding dependencies to the MANIFEST.MF file that get's genereated when we build the WAR or JAR. We are going to use the later alternative by telling maven to add these. In the ```<build>``` section of pom.xml there are a maven-war-plugin defined, in the ```<configuration>``` section after ```<failOnMissingWebXml>``` add the following:
 

@@ -14,15 +14,15 @@ app.config(function ($routeProvider) {
         controller: 'CreateCtrl'
     }).otherwise({
         redirectTo: '/'
-    })
+    });
 });
  
 app.controller('ListCtrl', function ($scope, $http) {
     $http.get('/todo/rest/tasks').success(function (data) {
         $scope.tasks = data;
     }).error(function (data, status) {
-        console.log('Error ' + data)
-    })
+        console.log('Error ' + data);
+    });
  
     $scope.taskStatusChanged = function (task) {
         console.log(task);
@@ -35,7 +35,7 @@ app.controller('ListCtrl', function ($scope, $http) {
         }).error(function (data, status) {
             console.log('Error ' + data);
         });
-    }
+    };
 });
  
 app.controller('CreateCtrl', function ($scope, $http, $location) {
@@ -48,7 +48,7 @@ app.controller('CreateCtrl', function ($scope, $http, $location) {
         $http.post('/todo/rest/tasks', $scope.task).success(function (data) {
             $location.path('/');
         }).error(function (data, status) {
-            console.log('Error ' + data)
-        })
-    }
+            console.log('Error ' + data);
+        });
+    };
 });
