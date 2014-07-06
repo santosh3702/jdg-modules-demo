@@ -9,7 +9,11 @@ To run this demo follow the steps below:
 
         $  curl https://codeload.github.com/tqvarnst/jdg-modules-demo/zip/master -o jdgdemo.zip
 
-2. Download JBoss EAP 6.2 and JDG 6.3 Beta or later and place it under the installs dir
+2. Unzip the download file into any directory
+
+        $ unzip jdgdemo.zip
+        
+3. Download JBoss EAP 6.2 and JDG 6.3 Beta or later and place it under the installs dir
 3. Run the init.sh script (you might have to change some of the settings in init.sh if you are using a later version of EAP or JDG)
 4. Start JBoss EAP
 
