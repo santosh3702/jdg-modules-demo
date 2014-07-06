@@ -16,9 +16,9 @@ The First step over is to verify that the application build and deploy before we
 
 ### Install and build the mock project
 
-1. Clone the mockup project
+1. Download a ZIP of the project directly from the site or by using the following command
 
-        $  curl https://codeload.github.com/tqvarnst/jdg-modules-demo/zip/1.0-mockup -o lab1.zip
+        $  curl https://codeload.github.com/tqvarnst/jdg-modules-demo/zip/master -o lab1.zip
 
 2. Unzip into a suitable directory and change dir to it
         
