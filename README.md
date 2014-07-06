@@ -13,6 +13,6 @@ To run this demo follow the steps below:
 3. Run the init.sh script (you might have to change some of the settings in init.sh if you are using a later version of EAP or JDG)
 4. Start JBoss EAP
 
-        target/jboss-eap-6.3/bin/standalone.hs
+        target/jboss-eap-6.2/bin/standalone.sh
         
 5. Follow the instructions for [lab1](https://github.com/tqvarnst/jdg-modules-demo/blob/master/projects/todo/lab-guides/lab-guide1.md) to build and deploy a project using JBoss Data Grid in Library mode
